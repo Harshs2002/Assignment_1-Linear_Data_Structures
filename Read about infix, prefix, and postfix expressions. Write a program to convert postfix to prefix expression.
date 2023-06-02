@@ -1,0 +1,24 @@
+def postfix_to_prefix(expression):
+    stack = []
+
+    operators = set(['+', '-', '*', '/', '^'])
+
+    for token in expression:
+        if token not in operators:
+            stack.append(token)
+        else:
+            operand2 = stack.pop()
+            operand1 = stack.pop()
+            stack.append(token + operand1 + operand2)
+
+    prefix_expression = stack.pop()
+    return prefix_expression
+
+
+
+postfix = "23+4*"
+prefix = postfix_to_prefix(postfix)
+print("Prefix expression:", prefix)
+
+# output
+Prefix expression: *+234
