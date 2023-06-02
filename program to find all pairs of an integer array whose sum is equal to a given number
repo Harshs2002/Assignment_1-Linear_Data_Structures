@@ -1,0 +1,26 @@
+def find_pairs(array, target_sum):
+    pairs = []
+    length = len(array)
+
+    for i in range(length - 1):
+        for j in range(i + 1, length):
+            if array[i] + array[j] == target_sum:
+                pairs.append((array[i], array[j]))
+
+    return pairs
+
+
+nums = [2, 4, 3, 5, 6, -2, 4, 7, 8, 9]
+target = 7
+result = find_pairs(nums, target)
+
+print(f"Pairs with sum {target}:")
+for pair in result:
+    print(pair)
+
+# output
+Pairs with sum 7:
+(2, 5)
+(4, 3)
+(3, 4)
+(-2, 9)
