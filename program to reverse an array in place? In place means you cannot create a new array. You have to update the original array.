@@ -1,0 +1,19 @@
+def reverse_array(array):
+    start = 0
+    end = len(array) - 1
+
+    while start < end:
+        array[start], array[end] = array[end], array[start]
+        start += 1
+        end -= 1
+
+
+nums = [1, 2, 3, 4, 5]
+print("Original array:", nums)
+
+reverse_array(nums)
+print("Reversed array:", nums)
+
+# output
+Original array: [1, 2, 3, 4, 5]
+Reversed array: [5, 4, 3, 2, 1]
