@@ -1,0 +1,24 @@
+def prefix_to_infix(expression):
+    stack = []
+
+    operators = set(['+', '-', '*', '/', '^'])
+
+    for token in reversed(expression):
+        if token not in operators:
+            stack.append(token)
+        else:
+            operand1 = stack.pop()
+            operand2 = stack.pop()
+            infix = f"({operand1}{token}{operand2})"
+            stack.append(infix)
+
+    infix_expression = stack.pop()
+    return infix_expression
+
+
+prefix = "*+23/45"
+infix = prefix_to_infix(prefix)
+print("Infix expression:", infix)
+
+# output
+Infix expression: ((2+3)*(4/5))
